@@ -1,24 +1,40 @@
 {
   "expo": {
-    "name": "PantamiImpact",
-    "slug": "PantamiImpact",
+    "name": "Pantami Impact Tracker",
+    "slug": "pantami-impact-tracker",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "scheme": "pantami-impact",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abzdevs.pantami"
     },
     "android": {
+      "package": "com.abzdevs.pantami",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC1HvQ_IqqeFYawV3nYY6WSU8BYZBfXAIQ"
+        }
+      },
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#008751",
+        "foregroundImage": "./assets/icon.png"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-asset"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7d2e4ed1-3cdb-48de-a0b9-03fd7c281855"
+      }
     }
   }
 }

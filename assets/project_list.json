@@ -1,0 +1,372 @@
+{
+  "summary": "This document outlines the transformative legacy projects spearheaded or facilitated by Professor Isa Ali Pantami in Gombe State from 2016 to 2023 during his tenures as Director-General of NITDA and Minister of Communications and Digital Economy. Over 241 projects were executed across ICT infrastructure, capacity building, digital literacy, and community interventions. Gombe State was positioned as a central hub for technology in the North-East zone, alongside significant non-ICT legacy projects in healthcare, infrastructure, and social investments.",
+  "project_categories": [
+    {
+      "category": "North-East Zonal Sited Offices & Major Infrastructure",
+      "description": "Establishment of regional headquarters for national telecommunications and IT bodies in Gombe State to boost the digital economy, connectivity, and cybersecurity across the zone.",
+      "projects": [
+        {
+          "project_number": 1,
+          "title": "NITDA North-East Zonal Office, Gombe",
+          "cost_naira": 318169671.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 2,
+          "title": "NCC North-East Zonal Office, Gombe (Temporary)",
+          "cost_naira": 101480000.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 3,
+          "title": "NCC Gombe Permanent Zonal Office",
+          "cost_naira": 397182887.92,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 4,
+          "title": "Galaxy Backbone (GBB) North-East Zonal Office, Gombe",
+          "cost_naira": 408383229.78,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 5,
+          "title": "NIGCOMSAT North-East Zonal Office, Gombe",
+          "cost_naira": null,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 6,
+          "title": "North-East Zonal ICT Hub, Gombe",
+          "cost_naira": 350000000.00,
+          "status": "Completed (2018)"
+        },
+        {
+          "project_number": 7,
+          "title": "North-East Digital Park at Federal Teaching Hospital Gombe",
+          "cost_naira": 1200000000.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 9,
+          "title": "GBB NICTIB II (Kano-Potiskum-Maiduguri-Gombe 48 Core Fiber Backbone)",
+          "cost_naira": 3000000000.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 11,
+          "title": "NIPOST Shopping Complex (Shops and Restaurants)",
+          "cost_naira": 500000000.00,
+          "status": "Completed (2021)"
+        }
+      ]
+    },
+    {
+      "category": "Broadband Infrastructure Projects (Schools, Markets & Airports)",
+      "description": "Deployment of wireless high-speed internet broadband hotspots across educational institutions, marketplaces, and airports to expand availability and improve the ease of doing business.",
+      "projects": [
+        {
+          "project_number": 16,
+          "title": "Broadband Infrastructure at Federal University Kashere",
+          "cost_naira": null,
+          "status": "Completed"
+        },
+        {
+          "project_number": 25,
+          "title": "Broadband Infrastructure at New Market Gombe",
+          "cost_naira": 338238241.90,
+          "status": "Completed"
+        },
+        {
+          "project_number": 27,
+          "title": "Broadband Infrastructure at Federal College of Education (Technical) Gombe",
+          "cost_naira": 210272150.00,
+          "status": "Completed"
+        },
+        {
+          "project_number": 28,
+          "title": "Broadband Infrastructure at Gombe State Polytechnic, Bajoga",
+          "cost_naira": 284350246.51,
+          "status": "Completed"
+        },
+        {
+          "project_number": 29,
+          "title": "Broadband Infrastructure at Gombe Lawanti International Airport",
+          "cost_naira": 222038025.00,
+          "status": "Completed"
+        },
+        {
+          "project_number": 30,
+          "title": "Broadband Infrastructure Project at Gombe Main Market",
+          "cost_naira": null,
+          "status": "Completed (2022)"
+        }
+      ]
+    },
+    {
+      "category": "Digital Capacity Building, Training & Job Creation Centres",
+      "description": "Establishment of functional IT labs equipped with computer workstations, solar power arrays, and internet connectivity to deliver professional IT skills, self-employment training, and digital literacy.",
+      "projects": [
+        {
+          "project_number": 12,
+          "title": "NITDA ICT Hub at Federal University Kashere",
+          "cost_naira": 343574920.88,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 13,
+          "title": "NITDA Virtual Library at Federal University Kashere (50 computers)",
+          "cost_naira": 150000000.00,
+          "status": "Completed (2018)"
+        },
+        {
+          "project_number": 14,
+          "title": "NITDA IT Innovation & Incubation Park at Gombe State University",
+          "cost_naira": 331318867.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 31,
+          "title": "Digital Capacity Building Centre (DCBC) at JIBWIS Science Secondary School, Gombe",
+          "cost_naira": 20925250.00,
+          "status": "Completed (2016)"
+        },
+        {
+          "project_number": 33,
+          "title": "DCBC at Government Science Secondary School, Gombe",
+          "cost_naira": 20787100.00,
+          "status": "Completed (2016)"
+        },
+        {
+          "project_number": 41,
+          "title": "Digital Job Creation Centre (DJCC) at Government Vocational College, Tula Wange",
+          "cost_naira": 21172058.50,
+          "status": "Completed (2017)"
+        },
+        {
+          "project_number": 44,
+          "title": "DJCC at Gombe State College for Legal and Islamic Studies, Nafada",
+          "cost_naira": 21065672.10,
+          "status": "Completed (2017)"
+        },
+        {
+          "project_number": 50,
+          "title": "Digital Divide Bridging Centre (DDBC) at Government Vocational Training Centre, Bolari East",
+          "cost_naira": 22842130.00,
+          "status": "Completed (2018)"
+        },
+        {
+          "project_number": 52,
+          "title": "DDBC at Gombe State Polytechnic Bajoga",
+          "cost_naira": 22847856.00,
+          "status": "Completed (2018)"
+        },
+        {
+          "project_number": 57,
+          "title": "Digital Capacity Training Centre (DCTC) at Federal Government Girls' College, Bajoga",
+          "cost_naira": 28048700.00,
+          "status": "Completed (2019)"
+        },
+        {
+          "project_number": 61,
+          "title": "Digital Economy Centre (DEC) & E-Learning Facilities at Gombe State College of Education and Legal Studies, Nafada",
+          "cost_naira": 31737092.50,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 64,
+          "title": "DEC & E-Learning Facilities at Federal Polytechnic Kaltungo",
+          "cost_naira": 31855657.50,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 71,
+          "title": "DEC & E-Learning Facilities at Federal Teaching Hospital, Gombe",
+          "cost_naira": 28561352.50,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 79,
+          "title": "Community IT Training Centre & IT Hub at Pantami",
+          "cost_naira": 87650300.00,
+          "status": "Completed (2019)"
+        },
+        {
+          "project_number": 80,
+          "title": "Community IT Training Centre & IT Hub at Dukku",
+          "cost_naira": 87650300.00,
+          "status": "Completed (2019)"
+        },
+        {
+          "project_number": 136,
+          "title": "Tertiary Institution Digital Centre (TIDC) at College of Education, Billiri",
+          "cost_naira": 44996123.16,
+          "status": "Completed (2019)"
+        },
+        {
+          "project_number": 138,
+          "title": "School Knowledge Centre (SKC) at Government Day Secondary Gabukka, Gombe",
+          "cost_naira": 28925025.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 149,
+          "title": "Digital Nigeria Centre (DNC) at Junior Secondary School Nafada Central",
+          "cost_naira": 35755575.00,
+          "status": "Completed (2022)"
+        }
+      ]
+    },
+    {
+      "category": "Smart Agriculture & Targeted Digital Literacy",
+      "description": "Training and deployment of specialized IT programs for community leaders, farmers, and educators.",
+      "projects": [
+        {
+          "project_number": 86,
+          "title": "National Adopted Village for Smart Agriculture Project (NAVSA Gombe component)",
+          "cost_naira": 650000000.00,
+          "status": "Completed (Multi-state total budget, 140 farmers empowered in Gombe)"
+        },
+        {
+          "project_index_range": "87-116",
+          "title": "Promoting Digital Literacy and Providing Laptops to Select Teachers (31 school locations)",
+          "cost_naira": null,
+          "status": "Completed (2019)"
+        },
+        {
+          "project_number": 117,
+          "title": "Promoting Digital Literacy and Providing Laptops to Imams and Pastors in Gombe State",
+          "cost_naira": null,
+          "status": "Completed"
+        },
+        {
+          "project_number": 118,
+          "title": "Wireless Internet Cloud (WIC) at Federal Teaching Hospital Gombe",
+          "cost_naira": 47710112.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 120,
+          "title": "Wireless Internet Cloud (WIC) at Gombe State University",
+          "cost_naira": 47710112.00,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 121,
+          "title": "Computer Based Test (CBT) Facility for JAMB, Gombe State",
+          "cost_naira": 243611250.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 124,
+          "title": "Provision of ICT and Assistive Technologies (E-Access) at Special School Gombe",
+          "cost_naira": 38060375.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 125,
+          "title": "Advanced Digital Awareness Program (ADAPTI Laptops) at Federal University, Kashere",
+          "cost_naira": 96000000.00,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 152,
+          "title": "Local Application/Content Development (LCD) at Nafada Community Secondary School",
+          "cost_naira": 944960.83,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 162,
+          "title": "Rural Broadband Initiative (RUBI) Project at Kaltungo",
+          "cost_naira": 24305747.95,
+          "status": "Completed (2020)"
+        },
+        {
+          "project_number": 168,
+          "title": "Emerging Technology Centre (ETC) at Government Science Secondary School, Gombe",
+          "cost_naira": 238662900.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 170,
+          "title": "Campus Connectivity Network (CCN) at Government Science Secondary School, Gombe",
+          "cost_naira": 47541875.00,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 183,
+          "title": "Capacity Building Workshop on Women ICT Entrepreneurship (100 Participants)",
+          "cost_naira": 200000000.00,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 200,
+          "title": "Community IT Centre & Techpreneurship Training for Internally Displaced Persons (IDP)",
+          "cost_naira": 235560825.00,
+          "status": "Completed (2021)"
+        }
+      ]
+    },
+    {
+      "category": "Legacy Non-ICT Sited Projects",
+      "description": "Major socio-economic and structural interventions across physical infrastructure, corporate social responsibility (CSR), health, and utilities facilitated directly to the state.",
+      "projects": [
+        {
+          "project_number": 187,
+          "title": "School Renovation CSR by Airtel at Government Day Primary School, Pantami",
+          "cost_naira": 200000000.00,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 203,
+          "title": "Flag Off of Kolmani Integrated Development Project (KIPRO Oil Field & Refinery Complex)",
+          "cost_naira": 3000000000.00,
+          "status": "Assigned/Flagged-off (Investment valued in USD as $3 Billion total)"
+        },
+        {
+          "project_number": 204,
+          "title": "National Housing Programme Estate Phase 1 (76 bungalows and connecting access roads)",
+          "cost_naira": 1159440861.63,
+          "status": "Completed (2022) (Building: N727.4M; Roads/Drains: N431.9M)"
+        },
+        {
+          "project_number": 205,
+          "title": "Gombe-Billiri-Kaltungo Interstate Highway Project (66.10 km)",
+          "cost_naira": null,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 206,
+          "title": "Distribution of 8,228 Bags of Assorted Food Items to Vulnerable Groups",
+          "cost_naira": null,
+          "status": "Completed (2022)"
+        },
+        {
+          "project_number": 208,
+          "title": "NNPC Hospital and 200-Capacity Bed Diagnostics Centre along Gombe Bypass road",
+          "cost_naira": 5000000000.00,
+          "status": "Dedicated land / Site Facilitated"
+        },
+        {
+          "project_index_range": "212-231",
+          "title": "Installation of over 300 Solar Powered Streetlight Poles (Across markets, metropolis, and mosques)",
+          "cost_naira": null,
+          "status": "Completed (2021-2023)"
+        },
+        {
+          "project_number": 232,
+          "title": "Free Medical Outreach Programs sponsored across rural communities (Dong, Filiya, etc.)",
+          "cost_naira": null,
+          "status": "Completed (2021)"
+        },
+        {
+          "project_number": 233,
+          "title": "Facilitated NIRSAL and COVID-19 Developmental Loan Scheme Access",
+          "cost_naira": 300000000.00,
+          "status": "Completed (Approximate total distribution to Gombe indigenes)"
+        }
+      ]
+    }
+  ]
+}
+
