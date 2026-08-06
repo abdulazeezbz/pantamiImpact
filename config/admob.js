@@ -9,11 +9,11 @@ export const ADMOB_CONFIG = {
   USE_TEST_ADS: true,
 
   // Your Production AdMob App IDs (admob.google.com -> App Settings)
-  PROD_APP_ID_ANDROID: 'ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX',
+  PROD_APP_ID_ANDROID: 'ca-app-pub-4816714934569245~7254666844',
   PROD_APP_ID_IOS: 'ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX',
 
   // Your Production Banner Ad Unit IDs (admob.google.com -> Ad units)
-  PROD_BANNER_ID_ANDROID: 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX',
+  PROD_BANNER_ID_ANDROID: 'ca-app-pub-4816714934569245/5750013483',
   PROD_BANNER_ID_IOS: 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX',
 
   // Google Official Test IDs (Do not change)
