@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,23 +6,33 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  SafeAreaView,
   BackHandler,
+  Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { ALL_PROJECTS } from '../../data/projects';
-
-const DEFAULT_BANNER = require('../../assets/project_banner.png');
+import { getProjectImageUrls, getPrimaryProjectImage } from '../../utils/imageResolver';
+import ProjectGallery from '../../components/ProjectGallery';
+import ImageViewerModal from '../../components/ImageViewerModal';
+import AdBanner from '../../components/AdBanner';
 
 export default function ProjectDetailScreen() {
   const { id, from } = useLocalSearchParams();
   const router = useRouter();
+  const [modalVisible, setModalVisible] = useState(false);
 
   const project = ALL_PROJECTS.find((p) => String(p.id) === String(id)) || ALL_PROJECTS[0];
+  const projectImages = getProjectImageUrls(project.project_number || project.id);
+  const coverImage = getPrimaryProjectImage(project.project_number || project.id);
 
   const handleBackPress = () => {
-    if (from === '/list' || from === '/map' || from === '/index') {
+    if (from === '/index' || from === '/') {
+      router.navigate('/');
+      return true;
+    }
+    if (from === '/list' || from === '/map') {
       router.navigate(from);
       return true;
     }
@@ -30,7 +40,7 @@ export default function ProjectDetailScreen() {
       router.back();
       return true;
     }
-    router.navigate('/list');
+    router.navigate('/');
     return true;
   };
 
@@ -39,6 +49,13 @@ export default function ProjectDetailScreen() {
     const subscription = BackHandler.addEventListener('hardwareBackPress', handleBackPress);
     return () => subscription.remove();
   }, [from]);
+
+  const handleNavigateToProject = (targetProjectId) => {
+    router.push({
+      pathname: `/project/${targetProjectId}`,
+      params: { from: from || '/' },
+    });
+  };
 
   const handleLocateOnMap = () => {
     router.push({
@@ -66,17 +83,25 @@ export default function ProjectDetailScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        {/* Top Banner Image */}
-        <View style={styles.imageContainer}>
+        {/* Top Banner Image (Tappable for Fullscreen Gallery) */}
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={styles.imageContainer}
+          onPress={() => setModalVisible(true)}
+        >
           <Image
-            source={DEFAULT_BANNER}
+            source={typeof coverImage === 'number' ? coverImage : { uri: coverImage.uri }}
             style={styles.bannerImage}
             resizeMode="cover"
           />
           <View style={styles.statusBadge}>
             <Text style={styles.statusBadgeText}>{project.status}</Text>
           </View>
-        </View>
+          <View style={styles.zoomHintBadge}>
+            <Ionicons name="expand" size={14} color="#FFFFFF" />
+            <Text style={styles.zoomHintText}>Tap photo for gallery (3x Zoom)</Text>
+          </View>
+        </TouchableOpacity>
 
         {/* Details Card */}
         <View style={styles.card}>
@@ -89,6 +114,24 @@ export default function ProjectDetailScreen() {
 
           <Text style={styles.title}>{project.title}</Text>
           <Text style={styles.costText}>{project.cost}</Text>
+
+          {/* Project Photo Gallery */}
+          <ProjectGallery
+            images={projectImages}
+            projectTitle={project.title}
+            projectNumber={project.project_number}
+            projectId={project.id}
+            onNavigateToProject={handleNavigateToProject}
+          />
+
+          {/* Full-Screen Image Viewer Modal */}
+          <ImageViewerModal
+            visible={modalVisible}
+            onClose={() => setModalVisible(false)}
+            currentProjectId={project.id}
+            initialIndex={0}
+            onNavigateToProject={handleNavigateToProject}
+          />
 
           {/* Description */}
           <View style={styles.section}>
@@ -135,6 +178,9 @@ export default function ProjectDetailScreen() {
             <Ionicons name="map" size={22} color="#FFFFFF" />
             <Text style={styles.mapButtonText}>Locate on Map</Text>
           </TouchableOpacity>
+
+          {/* AdMob Banner Ad */}
+          <AdBanner style={{ marginTop: 16 }} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -171,9 +217,10 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   imageContainer: {
-    height: 180,
+    height: Platform.OS === 'web' ? 280 : 250,
     width: '100%',
     position: 'relative',
+    backgroundColor: '#0F172A',
   },
   bannerImage: {
     width: '100%',
@@ -187,6 +234,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 5,
     borderRadius: 14,
+  },
+  zoomHintBadge: {
+    position: 'absolute',
+    bottom: 30,
+    right: 14,
+    backgroundColor: 'rgba(15, 23, 42, 0.75)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.25)',
+  },
+  zoomHintText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '700',
   },
   statusBadgeText: {
     color: '#008751',

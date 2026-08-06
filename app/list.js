@@ -6,13 +6,14 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { ALL_PROJECTS } from '../data/projects';
 import CategoryChips from '../components/CategoryChips';
 import ProjectCard from '../components/ProjectCard';
+import AdBanner from '../components/AdBanner';
 
 export default function AllProjectsScreen() {
   const router = useRouter();
@@ -138,6 +139,7 @@ export default function AllProjectsScreen() {
         }}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={<AdBanner />}
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <Ionicons name="search-outline" size={48} color="#94A3B8" />

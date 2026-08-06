@@ -5,10 +5,11 @@ import {
   View,
   ScrollView,
   Image,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { INFO_CONTENT } from '../data/projects';
+import AdBanner from '../components/AdBanner';
 
 const PANTAMI_PHOTO = require('../assets/Pantami.jpg');
 
@@ -94,6 +95,9 @@ export default function InfoScreen() {
             </View>
           ))}
         </View>
+
+        {/* AdMob Banner Ad */}
+        <AdBanner />
       </ScrollView>
     </SafeAreaView>
   );

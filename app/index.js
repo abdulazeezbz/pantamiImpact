@@ -5,12 +5,13 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { ALL_PROJECTS, SUMMARY_STATS } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
+import AdBanner from '../components/AdBanner';
 
 export default function DashboardScreen() {
   const router = useRouter();
@@ -93,9 +94,12 @@ export default function DashboardScreen() {
         {/* Compact Recommended Projects List */}
         <View style={styles.projectsContainer}>
           {recommendedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} compact={true} fromRoute="/index" />
+            <ProjectCard key={project.id} project={project} compact={true} fromRoute="/" />
           ))}
         </View>
+
+        {/* AdMob Banner Ad */}
+        <AdBanner />
       </ScrollView>
     </SafeAreaView>
   );

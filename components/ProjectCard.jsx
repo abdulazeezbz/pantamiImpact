@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-
-const DEFAULT_BANNER = require('../assets/project_banner.png');
+import { getPrimaryProjectImage } from '../utils/imageResolver';
 
 export default function ProjectCard({ project, compact = false, fromRoute = '/list' }) {
   const router = useRouter();
-  const { id, title, cost, status, tags, category } = project;
+  const { id, project_number, title, cost, status, tags, category } = project;
   const tagList = tags && tags.length ? tags : [category || 'Infrastructure'];
+  const coverImage = getPrimaryProjectImage(project_number || id);
 
   const handlePress = () => {
     router.push({
@@ -24,7 +24,7 @@ export default function ProjectCard({ project, compact = false, fromRoute = '/li
         style={styles.simpleCompactContainer}
       >
         <Image
-          source={DEFAULT_BANNER}
+          source={typeof coverImage === 'number' ? coverImage : { uri: coverImage.uri }}
           style={styles.simpleCompactImage}
           resizeMode="cover"
         />
@@ -52,7 +52,7 @@ export default function ProjectCard({ project, compact = false, fromRoute = '/li
     >
       <View style={styles.imageContainer}>
         <Image
-          source={DEFAULT_BANNER}
+          source={typeof coverImage === 'number' ? coverImage : { uri: coverImage.uri }}
           style={styles.bannerImage}
           resizeMode="cover"
         />

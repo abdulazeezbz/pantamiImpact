@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_DEFAULT } from 'react-native-maps';
 import { Ionicons } from '@expo/vector-icons';
+import { getPrimaryProjectImage } from '../utils/imageResolver';
 
 export default function MapViewContainer({
   mapRef,
@@ -69,7 +70,10 @@ export default function MapViewContainer({
         <View style={styles.pinCardContainer}>
           <View style={styles.pinCardHeader}>
             <Image
-              source={PANTAMI_PHOTO}
+              source={(() => {
+                const img = getPrimaryProjectImage(selectedProject.project_number || selectedProject.id);
+                return typeof img === 'number' ? img : { uri: img.uri };
+              })()}
               style={styles.pantamiAvatar}
               resizeMode="cover"
             />
