@@ -9,11 +9,11 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import MapView, { Marker, Callout, PROVIDER_DEFAULT } from 'react-native-maps';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ALL_PROJECTS, fetchOSMGeocode } from '../data/projects';
 import CategoryChips from '../components/CategoryChips';
+import MapViewContainer from '../components/MapViewContainer';
 
 const GOMBE_REGION = {
   latitude: 10.2897,
@@ -212,115 +212,19 @@ export default function MapScreen() {
         onSelectCategory={setActiveCategory}
       />
 
-      {/* Interactive Map */}
-      <View style={styles.mapWrapper}>
-        <MapView
-          ref={mapRef}
-          style={styles.map}
-          provider={PROVIDER_DEFAULT}
-          initialRegion={GOMBE_REGION}
-          showsUserLocation={true}
-          showsCompass={true}
-          onPress={() => setSelectedProject(null)}
-        >
-          {filteredProjects.map((project) => {
-            const isSelected = selectedProject && String(selectedProject.id) === String(project.id);
-            return (
-              <Marker
-                key={project.id}
-                ref={(ref) => (markerRefs.current[project.id] = ref)}
-                coordinate={project.coordinates}
-                pinColor={isSelected ? '#0284C7' : '#008751'}
-                onPress={() => setSelectedProject(project)}
-              >
-                <Callout
-                  style={styles.calloutContainer}
-                  onPress={() => navigateToDetails(project.id)}
-                >
-                  <View style={styles.calloutContent}>
-                    <Text style={styles.calloutTitle} numberOfLines={2}>
-                      {project.title}
-                    </Text>
-                    <Text style={styles.calloutDesc} numberOfLines={2}>
-                      {project.description}
-                    </Text>
-                    <Text style={styles.calloutCost}>{project.cost}</Text>
-                    <Text style={styles.calloutActionText}>Tap to view details →</Text>
-                  </View>
-                </Callout>
-              </Marker>
-            );
-          })}
-        </MapView>
-
-        {/* Selected Pin Bottom Preview Modal */}
-        {selectedProject ? (
-          <View style={styles.pinCardContainer}>
-            <View style={styles.pinCardHeader}>
-              <Image
-                source={PANTAMI_PHOTO}
-                style={styles.pantamiAvatar}
-                resizeMode="cover"
-              />
-              <View style={{ flex: 1 }}>
-                <View style={styles.badgeRow}>
-                  <View style={styles.categoryPill}>
-                    <Text style={styles.categoryPillText}>{selectedProject.category}</Text>
-                  </View>
-                  <Text style={styles.statusText}>{selectedProject.status}</Text>
-                </View>
-                <Text style={styles.pinCardTitle} numberOfLines={2}>
-                  {selectedProject.title}
-                </Text>
-              </View>
-              <TouchableOpacity
-                onPress={() => setSelectedProject(null)}
-                style={styles.closeBtn}
-              >
-                <Ionicons name="close" size={20} color="#64748B" />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.pinCardDescription} numberOfLines={2}>
-              {selectedProject.description}
-            </Text>
-
-            {/* OpenStreetMap display_name returned for selected project location */}
-            <View style={styles.osmAddressBox}>
-              <Ionicons name="location" size={14} color="#008751" />
-              {loadingOsmAddress ? (
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                  <ActivityIndicator size="small" color="#008751" />
-                  <Text style={styles.osmAddressText}>Fetching OpenStreetMap address...</Text>
-                </View>
-              ) : (
-                <Text style={styles.osmAddressText} numberOfLines={2}>
-                  {osmDisplayName || selectedProject.location}
-                </Text>
-              )}
-            </View>
-
-            <View style={styles.pinCardFooter}>
-              <Text style={styles.pinCardCost}>{selectedProject.cost}</Text>
-              <TouchableOpacity
-                style={styles.detailsBtn}
-                activeOpacity={0.8}
-                onPress={() => navigateToDetails(selectedProject.id)}
-              >
-                <Text style={styles.detailsBtnText}>View Full Details →</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        ) : (
-          /* Floating Counter Indicator */
-          <View style={styles.floatingBadge}>
-            <Ionicons name="location" size={16} color="#008751" />
-            <Text style={styles.floatingBadgeText}>
-              Showing {filteredProjects.length} Projects on Map
-            </Text>
-          </View>
-        )}
-      </View>
+      {/* Map or Web Fallback */}
+      <MapViewContainer
+        mapRef={mapRef}
+        markerRefs={markerRefs}
+        GOMBE_REGION={GOMBE_REGION}
+        PANTAMI_PHOTO={PANTAMI_PHOTO}
+        filteredProjects={filteredProjects}
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+        osmDisplayName={osmDisplayName}
+        loadingOsmAddress={loadingOsmAddress}
+        navigateToDetails={navigateToDetails}
+      />
     </SafeAreaView>
   );
 }
