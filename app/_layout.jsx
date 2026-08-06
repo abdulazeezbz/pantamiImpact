@@ -1,11 +1,24 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { Platform, NativeModules } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Layout() {
   const insets = useSafeAreaInsets();
   const bottomInset = Math.max(insets.bottom, 12);
+
+  React.useEffect(() => {
+    // Only initialize native AdMob when custom native module is present (in custom APK/Dev build, not Expo Go)
+    if (Platform.OS === 'android' && NativeModules.RNGoogleMobileAdsModule) {
+      try {
+        const mobileAds = require('react-native-google-mobile-ads').default;
+        mobileAds?.().initialize?.();
+      } catch (e) {
+        // Safe fallback
+      }
+    }
+  }, []);
 
   return (
     <Tabs

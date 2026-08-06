@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Platform, Text } from 'react-native';
-import { ADMOB_CONFIG, getBannerAdUnitId } from '../config/admob';
+import { StyleSheet, View, Platform, NativeModules } from 'react-native';
+import { getBannerAdUnitId } from '../config/admob';
 
-let BannerAd, BannerAdSize, TestIds;
-if (Platform.OS !== 'web') {
+let BannerAd, BannerAdSize;
+if (Platform.OS === 'android' && NativeModules.RNGoogleMobileAdsModule) {
   try {
     const mobileAds = require('react-native-google-mobile-ads');
     BannerAd = mobileAds.BannerAd;
     BannerAdSize = mobileAds.BannerAdSize;
-    TestIds = mobileAds.TestIds;
   } catch (e) {
-    console.warn('AdMob SDK unavailable on this platform/build:', e);
+    // Safe fallback
   }
 }
 
 export default function AdBanner({ style }) {
   const [adFailed, setAdFailed] = useState(false);
 
-  // On Web, render a subtle non-intrusive container or hide
-  if (Platform.OS === 'web') {
+  // Only render on Android platform
+  if (Platform.OS !== 'android') {
     return null;
   }
 
@@ -27,9 +26,7 @@ export default function AdBanner({ style }) {
     return null;
   }
 
-  const adUnitId = ADMOB_CONFIG.USE_TEST_ADS
-    ? (Platform.OS === 'ios' ? TestIds?.BANNER : TestIds?.BANNER) || getBannerAdUnitId()
-    : getBannerAdUnitId();
+  const adUnitId = getBannerAdUnitId();
 
   return (
     <View style={[styles.adContainer, style]}>
