@@ -7,15 +7,21 @@ const { withProjectBuildGradle } = require('@expo/config-plugins');
 module.exports = function withAdMobFix(config) {
   return withProjectBuildGradle(config, (config) => {
     if (!config.modResults.contents.includes('play-services-ads:23.6.0')) {
-      config.modResults.contents += `
-allprojects {
-    configurations.all {
-        resolutionStrategy {
-            force 'com.google.android.gms:play-services-ads:23.6.0'
-        }
+      const resolutionSnippet = `
+  configurations.all {
+    resolutionStrategy {
+      force 'com.google.android.gms:play-services-ads:23.6.0'
     }
-}
-`;
+  }`;
+
+      if (config.modResults.contents.includes('allprojects {')) {
+        config.modResults.contents = config.modResults.contents.replace(
+          'allprojects {',
+          `allprojects {${resolutionSnippet}`
+        );
+      } else {
+        config.modResults.contents += `\nallprojects {${resolutionSnippet}\n}\n`;
+      }
     }
     return config;
   });
