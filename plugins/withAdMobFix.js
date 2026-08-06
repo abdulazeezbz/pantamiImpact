@@ -1,16 +1,17 @@
 const { withProjectBuildGradle } = require('@expo/config-plugins');
 
 /**
- * Expo Config Plugin to force play-services-ads version to 23.6.0.
- * This fixes the Kotlin compiler 2.3.0 metadata incompatibility bug in play-services-ads 25.4.0.
+ * Expo Config Plugin to force play-services-ads version to 24.3.0.
+ * This satisfies react-native-google-mobile-ads 16.4.0 (requires AgeRestrictedTreatment API)
+ * while avoiding the Kotlin 2.3.0 metadata incompatibility bug introduced in play-services-ads 25.4.0.
  */
 module.exports = function withAdMobFix(config) {
   return withProjectBuildGradle(config, (config) => {
-    if (!config.modResults.contents.includes('play-services-ads:23.6.0')) {
+    if (!config.modResults.contents.includes('play-services-ads:24.3.0')) {
       const resolutionSnippet = `
   configurations.all {
     resolutionStrategy {
-      force 'com.google.android.gms:play-services-ads:23.6.0'
+      force 'com.google.android.gms:play-services-ads:24.3.0'
     }
   }`;
 
